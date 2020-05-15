@@ -21,6 +21,13 @@ public:
   ConstIterator cbegin() const { return begin(); }
   ConstIterator cend() const { return end(); }
 
+  const T& at(const std::size_t inIndex) const
+  {
+    EXPECTS(inIndex < mNumberOfElements);
+    return mData[inIndex];
+  }
+  const T& operator[](const std::size_t inIndex) const { return at(inIndex); }
+
   const T* GetData() const { return mData; }
   std::size_t GetNumberOfElements() const { return mNumberOfElements; }
   std::size_t GetSizeInBytes() const { return mNumberOfElements * sizeof(T); }
