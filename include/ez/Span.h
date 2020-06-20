@@ -82,6 +82,11 @@ inline auto MakeSpan(const TArray& inArray, const std::size_t inNumberOfElements
   return Span<typename TArray::value_type> { inArray.data(), inNumberOfElements };
 }
 template <typename T>
+inline auto MakeEmptySpan()
+{
+  return Span<T> { nullptr, 0 };
+}
+template <typename T>
 inline auto MakeSpan(Span<T>& inMutableSpan)
 {
   return Span<T>(inMutableSpan.GetData(), inMutableSpan.GetNumberOfElements());
