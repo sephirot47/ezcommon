@@ -19,7 +19,7 @@ struct IsArray<std::array<T, N>> : std::true_type
 };
 
 template <typename T>
-static constexpr auto IsArray_v = IsArray<T>::value;
+static constexpr auto IsArray_v = IsArray<std::remove_cvref_t<T>>::value;
 
 // IsSpan
 template <typename T>
@@ -33,7 +33,7 @@ struct IsSpan<Span<T>> : std::true_type
 };
 
 template <typename T>
-static constexpr auto IsSpan_v = IsSpan<T>::value;
+static constexpr auto IsSpan_v = IsSpan<std::remove_cvref_t<T>>::value;
 
 // VariantIndex
 template <typename TVariantType, typename T, std::size_t TIndex>
