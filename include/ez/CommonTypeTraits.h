@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ez/Span.h"
+#include <ez/Span.h>
 #include <array>
 #include <cstdlib>
 #include <variant>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ez/Macros.h"
+#include <ez/Macros.h>
 #include <array>
 #include <cstdint>
 #include <type_traits>
