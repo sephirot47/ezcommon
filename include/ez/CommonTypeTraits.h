@@ -1,9 +1,10 @@
 #pragma once
 
-#include <ez/Span.h>
 #include <array>
 #include <cstdlib>
+#include <ez/Span.h>
 #include <variant>
+#include <type_traits>
 
 namespace ez
 {
@@ -19,7 +20,7 @@ struct IsArray<std::array<T, N>> : std::true_type
 };
 
 template <typename T>
-static constexpr auto IsArray_v = IsArray<std::remove_cvref_t<T>>::value;
+static constexpr auto IsArray_v = IsArray<std::remove_cv_t<std::decay_t<T>>>::value;
 
 // IsSpan
 template <typename T>
@@ -33,7 +34,7 @@ struct IsSpan<Span<T>> : std::true_type
 };
 
 template <typename T>
-static constexpr auto IsSpan_v = IsSpan<std::remove_cvref_t<T>>::value;
+static constexpr auto IsSpan_v = IsSpan<std::remove_cv_t<std::decay_t<T>>>::value;
 
 // VariantIndex
 template <typename TVariantType, typename T, std::size_t TIndex>
