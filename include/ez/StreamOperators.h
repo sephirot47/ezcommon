@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <list>
 #include <map>
+#include <optional>
 #include <ostream>
 #include <set>
 #include <type_traits>
